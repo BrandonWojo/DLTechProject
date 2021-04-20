@@ -35,8 +35,11 @@ The userDefSimulationInit and userDefSimulationNextState lifecycle functions are
 
 # Note
 
-The software expects the node array to be an array of dictionaries where each dictionary is the represenation of the node.  These are the componenets of a node being tracked for the purpose of the simulation.  id is expected to be a unique integer >= 0  to idetify a node. drone is a boolean which indicates if a node is a drone or otherwise a station.  x is the horizontal coordinate as a percentage of the width of a field being simulated, x is between 0 and 1. y is the vertical coordinate as a percentage of the height of a field being simulated, y is between 0 and 1. rot is the rotational angle of the node, in degrees.  velocity is the velocity of the drone, can be used in the simulation policy as seen in my random simulation code (non constrained floating point number). Ledger is the local ledger the node holds, represented as an array of transactions.  Here an array of strings is used for the transactions but any object can be used as long as it has an implemented __str__() function (to string method).
-{
+The software expects the node array to be an array of dictionaries where each dictionary is the represenation of the node.  
+
+Node dictionary example:
+
+node = {
     'id': 2, 
     'drone': True, 
     'x':.50, 
@@ -45,3 +48,5 @@ The software expects the node array to be an array of dictionaries where each di
     'velocity':.4, 
     'ledger':['Transaction 1','Transaction 2','Transaction 3']
 }
+
+These are the componenets of a node being tracked for the purpose of the simulation.  id is expected to be a unique integer >= 0  to idetify a node. drone is a boolean which indicates if a node is a drone or otherwise a station.  x is the horizontal coordinate as a percentage of the width of a field being simulated, x is between 0 and 1. y is the vertical coordinate as a percentage of the height of a field being simulated, y is between 0 and 1. rot is the rotational angle of the node, in degrees.  velocity is the velocity of the drone, can be used in the simulation policy as seen in my random simulation code (non constrained floating point number). Ledger is the local ledger the node holds, represented as an array of transactions.  Here an array of strings is used for the transactions but any object can be used as long as it has an implemented __str__() function (to string method).
